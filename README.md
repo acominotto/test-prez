@@ -2,6 +2,7 @@ Test Talk
 =========
 
 This presentation is about the testing in general more precisely the Javascript's testing environment.
+
 Required:
 + [NodeJS](http://nodejs.org/)
 + [Grunt](http://gruntjs.com/)
