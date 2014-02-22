@@ -8,4 +8,8 @@ describe('Javascript', function() {
     expect(true).toBeTruthy();
     expect(true).not.toBeFalsy();
   });
+  it('should add two floating points', function(){
+  	expect(1.1 + 1.9).toBe(3)
+  })
 });
+
