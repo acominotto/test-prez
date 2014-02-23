@@ -1,0 +1,53 @@
+/**
+ * Custom theme for Sfeir
+ * theme for reveal.js.
+ *
+ * Author : Vandendaele Alexis - vandendaele.a@sfeir.lu
+ * Feb 2014
+*/
+
+// Default mixins and settings -----------------
+@import "../bower_components/reveal.js/css/theme/template/mixins";
+@import "../bower_components/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+$sfeirOrange: #e94e00;
+$sfeirBlack: #000000;
+$sfeirWhite: #ffffff;
+
+$unknownColor1 : rgb(247,150,70);
+$unknownColor2 : rgb(228,77,38);
+$unknownColor3 : rgb(241,101,41);
+
+// Common
+
+$backgroundColor: $sfeirWhite;
+
+// Sfeir font is Adale Mono Regular but it's rights protected
+$mainFont: "Lucida Console", Monaco, monospace;
+$mainColor: $sfeirBlack;
+
+// Headings
+$headingFont: $mainFont;
+$headingColor: $sfeirOrange;
+
+// Links and actions
+$linkColor: rgb(247,150,70);
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $sfeirBlack;
+$selectionColor: $sfeirWhite;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}
+
+
+
+// Theme template ------------------------------
+@import "../bower_components/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
