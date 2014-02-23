@@ -33,6 +33,8 @@
                 <section>
                   <h1>Testing</h1>
                   <h3>Awesome since 1999</h3><!-- Junit -> 25th of november 2000 -->
+                  <p>Adrien Cominotto (<a href="https://twitter.com/adriencominotto">@adriencominotto</a>)
+                  <p><small>This project is available on <a href="https://github.com/acominotto/test-prez">github</a></small></p>
                 </section>
                 <section>
                   <blockquote>"We don't have the time nor the money to test"
@@ -199,19 +201,28 @@ describe('angularjs homepage', function() {
   it('should greet the named user', function() {
     browser.get('http://www.angularjs.org');
 
-    element(by.model('yourName')).sendKeys('Julie');
+    element(by.model('yourName')).sendKeys('Adrien');
 
     var greeting = element(by.binding('yourName'));
 
-    expect(greeting.getText()).toEqual('Hello Julie!');
+    expect(greeting.getText()).toEqual('Hello Adrien!');
   });
 });
                     </code></pre>
                   </section>
+                  <section>
+                    <h1>One step further: <a href="https://saucelabs.com">SauceLabs</a></h1>
+                    <ul>
+                      <li>Emulates nearly every browser on every OS</li>
+                      <li>Even mobile applications!</li>
+                      <li>Runs automated tests AND manual tests</li>
+                      <li>Funny: is implementing a robot that actually touches real smartphones</li>
+                    </ul>
+                  </section>
                 </section>
                 <section>
                   <h1>Conclusion</h1>
-                  <h3>You don't have any excuse left not to test your Javascript (or application in general):</h3>
+                  <h3>You don't have any excuse left not to test your Javascript (or applicationu in general):</h3>
                   <ul>
                     <li>It'll help you to develop in a more structured way</li>
                     <li>It'll make you a better developer</li>
