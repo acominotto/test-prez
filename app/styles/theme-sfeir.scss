@@ -31,9 +31,41 @@ $mainColor: $sfeirBlack;
 $headingFont: $mainFont;
 $headingColor: $sfeirOrange;
 
+.reveal{
+h1{
+    font-size: 2.75em!important;
+    word-spacing: -25px;
+    margin-bottom: 0.25em!important;
+    letter-spacing: -5px!important;
+}
+ h2, h3, h4, h5{
+     color: $sfeirBlack!important;
+   //  margin-bottom: 1em!important;
+     text-transform: none!important;
+ }
+
+    h2{
+        word-spacing: -20px;
+        letter-spacing: -3px!important;
+    }
+
+    h3{
+    letter-spacing: -6px!important;
+        word-spacing: -10px!important;
+        font-size: 1.75em!important;
+        line-height: 1.2em!important;
+    }
+}
+
+.reveal blockquote{
+    margin-bottom: 1em!important;
+    border: solid 1px $unknownColor1!important;
+    padding: 1em!important;
+}
+
 // Links and actions
-$linkColor: rgb(247,150,70);
-$linkColorHover: lighten( $linkColor, 20% );
+$linkColor: lighten( $sfeirOrange, 20% );
+$linkColorHover: $sfeirOrange;
 
 // Text selection
 $selectionBackgroundColor: $sfeirBlack;
@@ -43,6 +75,8 @@ $selectionColor: $sfeirWhite;
 // to return a background image or gradient
 @mixin bodyBackground() {
 	background: $backgroundColor;
+    background: url('../images/logo_sfeir.png') 20px 98% no-repeat;
+      background-size: auto 4%;
 }
 
 
