@@ -9,7 +9,7 @@ describe('Javascript', function() {
     expect(true).not.toBeFalsy();
   });
   it('should add two floating points', function(){
-  	expect(1.1 + 1.9).toBe(3)
+    expect(1.1 + 1.9).toBe(3)
   })
 });
 
