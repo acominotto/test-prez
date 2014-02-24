@@ -1,0 +1,87 @@
+/**
+ * Custom theme for Sfeir
+ * theme for reveal.js.
+ *
+ * Author : Vandendaele Alexis - vandendaele.a@sfeir.lu
+ * Feb 2014
+*/
+
+// Default mixins and settings -----------------
+@import "../bower_components/reveal.js/css/theme/template/mixins";
+@import "../bower_components/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+$sfeirOrange: #e94e00;
+$sfeirBlack: #000000;
+$sfeirWhite: #ffffff;
+
+$unknownColor1 : rgb(247,150,70);
+$unknownColor2 : rgb(228,77,38);
+$unknownColor3 : rgb(241,101,41);
+
+// Common
+
+$backgroundColor: $sfeirWhite;
+
+// Sfeir font is Adale Mono Regular but it's rights protected
+$mainFont: "Lucida Console", Monaco, monospace;
+$mainColor: $sfeirBlack;
+
+// Headings
+$headingFont: $mainFont;
+$headingColor: $sfeirOrange;
+
+.reveal{
+h1{
+    font-size: 2.75em!important;
+    word-spacing: -25px;
+    margin-bottom: 0.25em!important;
+    letter-spacing: -5px!important;
+}
+ h2, h3, h4, h5{
+     color: $sfeirBlack!important;
+   //  margin-bottom: 1em!important;
+     text-transform: none!important;
+ }
+
+    h2{
+        word-spacing: -20px;
+        letter-spacing: -3px!important;
+    }
+
+    h3{
+    letter-spacing: -6px!important;
+        word-spacing: -10px!important;
+        font-size: 1.75em!important;
+        line-height: 1.2em!important;
+    }
+}
+
+.reveal blockquote{
+    margin-bottom: 1em!important;
+    border: solid 1px $unknownColor1!important;
+    padding: 1em!important;
+}
+
+// Links and actions
+$linkColor: lighten( $sfeirOrange, 20% );
+$linkColorHover: $sfeirOrange;
+
+// Text selection
+$selectionBackgroundColor: $sfeirBlack;
+$selectionColor: $sfeirWhite;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+    background: url('../images/logo_sfeir.png') 20px 98% no-repeat;
+      background-size: auto 4%;
+}
+
+
+
+// Theme template ------------------------------
+@import "../bower_components/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+

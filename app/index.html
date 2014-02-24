@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Ardien Cominotto Testing talk</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -15,7 +15,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <link rel="stylesheet" type="text/css" href="bower_components/reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" type="text/css" href="styles/theme-sfeir.css" id="theme">
     <link rel="stylesheet" type="text/css" href="bower_components/reveal.js/lib/css/zenburn.css">
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -52,7 +52,7 @@
                 </section>
                 <section>
                     <section>
-                      <h1>1999: Test Driven Development<h1>
+                      <h1>1999: Test Driven Development</h1>
                       <h3>Kent Beck in <a href="http://www.amazon.com/Extreme-Programming-Explained-Embrace-Edition/dp/0321278658">Extreme Programming</a></h3>
                       <!-- Interresting informations: http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment -->
                     </section>
@@ -76,7 +76,7 @@
                 </section>
                 <section>
                   <section>
-                    <h1>2003: Behavior Driven Development<h1>
+                    <h1>2003: Behavior Driven Development</h1>
                     <h3>Dan North in <a href="http://dannorth.net/introducing-bdd/">Introducing BDD</a></h3>
                   </section>
                   <section>
@@ -100,7 +100,7 @@
                 </section>
                 <section>
                   <section>
-                  <h1>Test framework</li>
+                  <h1>Test framework</h1>
                   <h3><a href="http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#JavaScript">Most famous are:</a></h3>
                   <ul>
                     <li>Jasmine</li>
@@ -132,6 +132,7 @@ describe('Javascript', function() {
                       <li>BDD</li>
                       <li>xUnit Like (extensible)</li>
                       <li>Uses add ons</li>
+                        </ul>
                       <pre><code data-trim class="javascript">
 var assert = require("assert");
 
@@ -145,7 +146,7 @@ describe('Javascript', function() {
   });
 });
                     </code></pre>
-                    </ul>
+
                   </section>
                   <section>
                     <h1>Demo time !</h1>
@@ -167,11 +168,11 @@ describe('Javascript', function() {
                 </section>
                 <section>
                   <section>
-                  <h1>Ok... What about Functional Testing?<h1>  
+                  <h1>Ok... What about Functional Testing?</h1>
                   </section>
                   <section>
                     <h1>Selenium's <a href="https://code.google.com/p/selenium/wiki/WebDriverJs">WebdriverJS</a></h1>
-                    <h3>Javascript's way of using Selenium</h3>
+                    <h4>Javascript's way of using Selenium</h4>
                     <pre><code data-trim>
 var webdriver = require('selenium-webdriver');
 
@@ -193,7 +194,7 @@ driver.quit();
                   </section>
                   <section>
                     <h2><a href="https://github.com/angular/protractor">Protactor</a> for AngularJs</h2>
-                    <h3>Wrapper around WebdriverJS, providing with angular tools</h3>
+                    <p>Wrapper around WebdriverJS, providing with angular tools</p>
                     <ul>
                       <li>Provides 3 variables: <code>browser</code>, <code>by</code> and <code>element</code></li>
                       <li>Uses Jasmin (or Mocha) as test framework</li>
