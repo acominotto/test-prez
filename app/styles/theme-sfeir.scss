@@ -75,7 +75,7 @@ $selectionColor: $sfeirWhite;
 // to return a background image or gradient
 @mixin bodyBackground() {
 	background: $backgroundColor;
-    background: url('../images/logo_sfeir.png') 20px 98% no-repeat;
+    background: url('/images/logo_sfeir.png') 20px 98% no-repeat;
       background-size: auto 4%;
 }
 
