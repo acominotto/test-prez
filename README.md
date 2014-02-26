@@ -3,6 +3,8 @@ Test Talk
 
 This presentation is about the testing in general more precisely the Javascript's testing environment.
 
+[Available on Heroku](http://sfeir-test-prez.herokuapp.com/)
+
 Required:
 + [NodeJS](http://nodejs.org/)
 + [Grunt](http://gruntjs.com/)
