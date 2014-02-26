@@ -1,0 +1,62 @@
+<!doctype html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ardien Cominotto Testing talk</title><meta name="description" content=""><meta name="viewport" content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel="stylesheet" href="styles/vendor.css"><link rel="stylesheet" type="text/css" href="bower_components/reveal.js/css/reveal.min.css"><link rel="stylesheet" type="text/css" href="styles/theme-sfeir.css" id="theme"><link rel="stylesheet" type="text/css" href="bower_components/reveal.js/lib/css/zenburn.css"><link rel="stylesheet" href="styles/main.css"><body ng-app="testPrezApp"><!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--><!-- Add your site or application content here --><div class="reveal"><div class="slides"><section><h1>Testing</h1><h3>Awesome since 1999</h3><!-- Junit -> 25th of november 2000 --><p>Adrien Cominotto (<a href="https://twitter.com/adriencominotto">@adriencominotto</a>)</p><p><small>This project is available on <a href="https://github.com/acominotto/test-prez">github</a></small></p></section><section><blockquote>"We don't have the time nor the money to test" - Some manager at some point of your life</blockquote><blockquote>"Tests are for bad programmers" - A friend of the first quoted manager</blockquote></section><section><h1>Types of Tests</h1><ul><li>Unit Testing</li><li>Integration Testing</li><li>Functional (E2E) Testing</li><li>Acceptance Testing (human)</li></ul></section><section><section><h1>1999: Test Driven Development</h1><h3>Kent Beck in <a href="http://www.amazon.com/Extreme-Programming-Explained-Embrace-Edition/dp/0321278658">Extreme Programming</a></h3><!-- Interresting informations: http://c2.com/cgi/wiki?TenYearsOfTestDrivenDevelopment --></section><section><h1>Pros</h1><ol><li>You'll write tests!</li><li>Recognize difficulties early</li><li>Less (or no more) regression. (Easier maintenance)</li><li>When familiarized, you will take less time to develop</li><li>API usage</li></ol></section><section><h1>Cons</h1><ol><li>Takes a bit of time to set up</li><li>Not easy to know what and how far to test</li></ol></section></section><section><section><h1>2003: Behavior Driven Development</h1><h3>Dan North in <a href="http://dannorth.net/introducing-bdd/">Introducing BDD</a></h3></section><section><h1>It guides you on what to test</h1><h3>Now you only have the excuse of the little time it takes to set up...</h3><!-- You only have to test the behaviors that you want your objects to have --><!-- The title of the test should be a sentence: "MyObject should react to this stimulus by executing this action"--></section><section><h2>Two types</h2><ol><li>xUnit Style: Given When Then</li><li>Spec Style: It should behave like...</li></ol></section></section><section><h1>In Javascript...</h1><h3>Javascript is a language interpreted by the browser isn't it (Node.js aside)</h3><p>How can I automate a test in a language that is interpreted by the browser?</p></section><section><section><h1>Test framework</h1><h3><a href="http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#JavaScript">Most famous are:</a></h3><ul><li>Jasmine</li><li>Mocha</li></ul></section><section><h2><a href="https://github.com/pivotal/jasmine">Jasmine</a></h2><ul><li>BDD</li><li>Spec Like</li><li>Offers practically everything you need out of the box (mock, asynchrone, ...)</li></ul><pre><code data-trim="" class="javascript">
+describe('Javascript', function() {
+  it('should add two numbers', function() {
+    expect(1 + 1).toBe(2);
+  });
+  it('should work well with booleans', function() {
+    expect(true).toBeTruthy();
+    expect(true).not.toBeFalsy();
+  });
+});
+                    </code></pre></section><section><h1><a href="https://github.com/visionmedia/mocha">Mocha</a></h1><ul><li>BDD</li><li>xUnit Like (extensible)</li><li>Uses add ons</li></ul><pre><code data-trim="" class="javascript">
+var assert = require("assert");
+
+describe('Javascript', function() {
+  it('should add two numbers', function() {
+    assert.equal(1 + 1, 2);
+  });
+  it('should work well with booleans', function() {
+    assert.equal(true, true);
+    assert.notEqual(true, false);
+  });
+});
+                    </code></pre></section><section><h1>Demo time !</h1></section></section><section><section><h1><a href="https://github.com/karma-runner/karma">Karma</a> Test-Runner</h1><ul><li>Manages your tests</li><li>Autowatches (or not)</li><li>Integrates well with Grunt</li><li>Tests in actual Browsers</li></ul></section><section><h1>Demo time !</h1></section></section><section><section><h1>Ok... What about Functional Testing?</h1></section><section><h1>Selenium's <a href="https://code.google.com/p/selenium/wiki/WebDriverJs">WebdriverJS</a></h1><h4>Javascript's way of using Selenium</h4><pre><code data-trim="">
+var webdriver = require('selenium-webdriver');
+
+var driver = new webdriver.Builder().
+   withCapabilities(webdriver.Capabilities.chrome()).
+   build();
+
+driver.get('http://www.google.com');
+driver.findElement(webdriver.By.name('q')).sendKeys('webdriver');
+driver.findElement(webdriver.By.name('btnG')).click();
+driver.wait(function() {
+ return driver.getTitle().then(function(title) {
+   return title === 'webdriver - Google Search';
+ });
+}, 1000);
+
+driver.quit();
+                    </code></pre></section><section><h2><a href="https://github.com/angular/protractor">Protactor</a> for AngularJs</h2><p>Wrapper around WebdriverJS, providing with angular tools</p><ul><li>Provides 3 variables: <code>browser</code>, <code>by</code> and <code>element</code></li><li>Uses Jasmin (or Mocha) as test framework</li><li>Friendlier (I find) than WebdriverJS</li><li>Requires a standalone WebdriverJS server (installed by protractor)</li></ul><pre><code data-trim="" class="javascript">
+describe('angularjs homepage', function() {
+  it('should greet the named user', function() {
+    browser.get('http://www.angularjs.org');
+
+    element(by.model('yourName')).sendKeys('Adrien');
+
+    var greeting = element(by.binding('yourName'));
+
+    expect(greeting.getText()).toEqual('Hello Adrien!');
+  });
+});
+                    </code></pre></section><section><h1>One step further: <a href="https://saucelabs.com">SauceLabs</a></h1><ul><li>Emulates nearly every browser on every OS</li><li>Even mobile applications!</li><li>Runs automated tests AND manual tests</li><li>Funny: is implementing a robot that actually touches real smartphones</li></ul></section><section><h1>Demo time !</h1></section></section><section><h1>Conclusion</h1><h3>You don't have any excuse left not to test your Javascript (or application in general):</h3><ul><li>It'll help you to develop in a more structured way</li><li>It'll make you a better developer</li><li>It'll make you a faster developer (eventually!)</li><li>It'll reduce the overall price of the development: the later the problems are found, the more expensive they are</li></ul></section><section><h1>Thank you</h1><h3>Any Questions?</h3><img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=ffffff&amp;data=https%3A%2F%2Fgithub.com%2Facominotto%2Ftest-prez&amp;qzone=1&amp;margin=0&amp;size=400x400&amp;ecc=L" alt="qr code"></section></div></div><!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]--><script src="scripts/bb218a37.vendor.js"></script><script src="bower_components/reveal.js/lib/js/head.min.js"></script><script src="bower_components/reveal.js/js/reveal.min.js"></script><script src="scripts/d41d8cd9.scripts.js"></script><script type="text/javascript">Reveal.initialize({
+            history: true,
+            dependencies: [
+              { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+          });</script>
